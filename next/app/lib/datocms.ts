@@ -3,7 +3,7 @@ import { GraphQLClient } from "graphql-request";
 interface RequestOptions {
   query: string;
   variable?: Record<string, any>;
-  preview: boolean;
+  preview?: boolean;
 };
 
 const request: React.FC<RequestOptions> = ({ query, variable, preview }) => {
