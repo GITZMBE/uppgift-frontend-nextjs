@@ -2,6 +2,7 @@ import React from 'react'
 import Container from '../components/Container'
 import request from '../lib/datocms';
 import ProductRecord from '../components/ProductRecord';
+import Product from '../models/product';
 
 const ProductsPage = async () => {
   const query = `query productCopy {
@@ -9,10 +10,15 @@ const ProductsPage = async () => {
       id
       name
       price
+      description {
+        value
+      }
       mainImage {
-        width
         url
+        title
         id
+        height
+        width
         responsiveImage(imgixParams: {fit: crop, auto: format, h: "100", w: "100"}) {
           height
           width
@@ -23,8 +29,8 @@ const ProductsPage = async () => {
       }
     }
   }`;
-  const data = await request({ query });
-  const products = data?.allProducts;
+  const data: any = await request({ query });
+  const products: Product[] = data?.allProducts;
 
   return (
     <Container>
