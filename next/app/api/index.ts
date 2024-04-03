@@ -1,5 +1,5 @@
 const graphqlRequest = async (query: string) => {
-  const url = process.env.NEXT_PUBLIC_BASEURL || "";
+  const url = process.env.NEXT_PUBLIC_DATOCMS_API_BASEURL || "";
 
   const res = await fetch(url, {
     method: "POST",
