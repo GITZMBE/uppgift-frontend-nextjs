@@ -1,97 +1,45 @@
-import { StructuredText } from "react-datocms";
-import Container from "./components/Container";
+import { Image, StructuredText } from "react-datocms";
 import request from "./lib/datocms";
-
-// export const getStaticProps = async () => {
-//   const query = `query productCopy {
-//     allProducts {
-//       price
-//       name
-//       mainImage {
-//         url
-//         width
-//         title
-//         size
-//         id
-//         height
-//         format
-//         filename
-//         author
-//         alt
-//         responsiveImage {
-//           width
-//           title
-//           srcSet
-//           src
-//           sizes
-//           height
-//           webpSrcSet
-//           bgColor
-//           base64
-//           aspectRatio
-//           alt
-//         }
-//       }
-//       id
-//     }
-//   }`;
-
-//   const data = await request({ query });
-
-//   return {
-//     props: { 
-//       data 
-//     }
-//   };
-// };
 
 const Home = async () => {
   const query = `query productCopy {
-    allProducts {
-      price
-      name
+    startpage {
+      title
+      id
       mainImage {
-        url
-        width
-        title
-        size
-        id
-        height
-        format
-        filename
-        author
-        alt
-        responsiveImage {
-          width
-          title
-          srcSet
+        responsiveImage(imgixParams: {fit: crop, auto: format}) {
           src
-          sizes
+          srcSet
           height
-          webpSrcSet
-          bgColor
-          base64
-          aspectRatio
-          alt
+          width
         }
       }
-      id
-      description {
+      content {
         value
       }
     }
   }`;
   const data = await request({ query });
-  const products = data?.allProducts || [];
+  const startpage = data?.startpage;
 
   return (
-    <Container>
+    <div className="w-full min-h-screen">
       {
-        products && products.map(product => {
-          <StructuredText data={product.description.value} />
-        })
+        startpage && (
+          <>
+            <div className="relative">
+              <Image data={startpage.mainImage.responsiveImage} />
+              <div className="absolute inset-0 flex justify-center items-center px-4 sm:px-8 md:px-12 backdrop-brightness-50">
+                <h1 className="text-[#EEEEEE] text-6xl text-center font-bold">{ startpage.title }</h1>
+              </div>
+            </div>
+            <div className="w-full px-4 sm:px-8 md:px-12 py-4">
+              <StructuredText data={startpage.content.value} />
+            </div>          
+          </>
+        )
       }
-    </Container>
+    </div>
   );
 };
 

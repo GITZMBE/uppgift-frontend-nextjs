@@ -32,12 +32,14 @@ const ProductPage = async ({ params }: { params: { id: string } }) => {
   }`;
   const data = await request({ query });
   const product = data?.product;
-  console.log(data);
 
   return (
     <Container>
       <Image data={product.mainImage.responsiveImage} />
-      <StructuredText data={product.description.value} />
+      <div className='flex flex-col items-center gap-4'>
+        <StructuredText data={product.description.value} />
+      </div>
+      
     </Container>
   )
 }
