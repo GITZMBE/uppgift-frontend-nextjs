@@ -26,7 +26,7 @@ interface Product {
       srcSet: string;
       src: string;
     }
-  }
+  }[]
 };
 
 export default Product;
