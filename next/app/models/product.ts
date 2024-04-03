@@ -3,7 +3,7 @@ interface Product {
   name: string
   price: string
   description: {
-    value: JSON
+    value: any
   }
   mainImage: {
     url: string
@@ -17,6 +17,14 @@ interface Product {
       srcSet: string
       src: string
       title: string
+    }
+  }
+  alternativeImages: {
+    responsiveImage: {
+      height: number;
+      width: number;
+      srcSet: string;
+      src: string;
     }
   }
 };
