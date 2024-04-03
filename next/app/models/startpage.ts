@@ -10,7 +10,7 @@ interface StartPage {
         }
       }
       content: {
-        value: JSON;
+        value: any
       }
 };
 

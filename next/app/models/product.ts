@@ -3,7 +3,7 @@ interface Product {
   name: string
   price: string
   description: {
-    value: JSON
+    value: any
   }
   mainImage: {
     url: string
