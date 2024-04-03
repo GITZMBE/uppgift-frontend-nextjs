@@ -26,6 +26,14 @@ const ProductPage = async ({ params }: { params: { id: string } }) => {
           width
         }
       }
+      alternativeImages {
+        responsiveImage(imgixParams: {w: "300", auto: format, fit: crop, h: "300"}) {
+          height
+          width
+          srcSet
+          src
+        }
+      }
     }
   }`;
   const data: any = await request({ query });
@@ -33,7 +41,16 @@ const ProductPage = async ({ params }: { params: { id: string } }) => {
 
   return (
     <Container>
-      <Image data={product.mainImage.responsiveImage} />
+      <div className='space-y-2'>
+        <Image data={product.mainImage.responsiveImage} />
+        <div className='flex gap-2'>
+          {
+            product.alternativeImages && product.alternativeImages.map(img => (
+              <Image data={img.responsiveImage} className='h-36 aspect-square' />
+            ))
+          }        
+        </div>        
+      </div>
       <div className='flex flex-col items-center gap-4'>
         <StructuredText data={product.description.value} />
       </div>
