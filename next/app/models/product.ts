@@ -19,6 +19,14 @@ interface Product {
       title: string
     }
   }
+  alternativeImages: {
+    responsiveImage: {
+      height: number;
+      width: number;
+      srcSet: string;
+      src: string;
+    }
+  }[]
 };
 
 export default Product;
