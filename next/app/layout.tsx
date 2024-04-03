@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "./components/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +16,12 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter" rel="stylesheet" />
       </head>
-      <body>{children}</body>
+      <body className="font-Inter">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
