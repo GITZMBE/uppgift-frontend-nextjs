@@ -8,7 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {}
+      colors: {
+        
+      },
+      fontFamily: {
+        Inter: "Inter"
+      }
     },
   },
   plugins: [],
