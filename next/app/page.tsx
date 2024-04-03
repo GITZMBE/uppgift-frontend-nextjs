@@ -1,5 +1,6 @@
 import { Image, StructuredText } from "react-datocms";
 import request from "./lib/datocms";
+import StartPage from "./models/startpage";
 
 const Home = async () => {
   const query = `query productCopy {
@@ -19,15 +20,15 @@ const Home = async () => {
       }
     }
   }`;
-  const data = await request({ query });
+  const data: any = await request({ query });
   const startpage = data?.startpage;
 
   return (
-    <div className="w-full min-h-screen">
+    <div className="w-full min-h-[200vh]">
       {
         startpage && (
           <>
-            <div className="relative">
+            <div className="relative flex items-center max-h-[50vh] overflow-hidden">
               <Image data={startpage.mainImage.responsiveImage} />
               <div className="absolute inset-0 flex justify-center items-center px-4 sm:px-8 md:px-12 backdrop-brightness-50">
                 <h1 className="text-[#EEEEEE] text-6xl text-center font-bold">{ startpage.title }</h1>
