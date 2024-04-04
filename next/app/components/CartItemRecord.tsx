@@ -5,18 +5,24 @@ import CartItem from '../models/cartItem'
 import { Image } from 'react-datocms';
 import { FaMinusCircle, FaPlusCircle } from 'react-icons/fa';
 import { RxCross2 } from 'react-icons/rx';
+import { cartState, updateCartItemQuantity } from '../recoil';
+import { useRecoilState } from 'recoil';
 
 const CartItemRecord = ({ item }: { item: CartItem }) => {
-  const [quantity, setQuantity] = useState<number>(item.Amount);
+  const [cart, setCart] = useRecoilState<CartItem[]>(cartState);
+  const [quantity, setQuantity] = useState<number>(item.quantity);
 
   useEffect(() => {
     if (quantity <= 0) {
       // remove cartitem from cart
     }
+
+    const newCart = updateCartItemQuantity(cart, item.id, quantity);
+    setCart(newCart);
   }, [quantity]);
 
   return (
-    <div className='group relative flex justify-between gap-12 w-full p-4 pr-16 rounded-lg border-2 border-gray-300'>
+    <div className='group relative flex justify-between gap-12 w-full p-4 pr-16 rounded-lg border-2 border-gray-300' onClick={_ => {console.log("hello")}}>
       <div className='flex items-center gap-4'>
         <Image data={item.mainImage.responsiveImage} style={{ width: 100, height: 100 }} />
         <div className='flex flex-col justify-between h-full'>
