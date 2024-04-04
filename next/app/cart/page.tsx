@@ -1,60 +1,42 @@
-'use client';
+"use client";
 
-import React from 'react'
-import Container from '../components/Container'
-import CartItemRecord from '../components/CartItemRecord'
-import Product from '../models/product';
-import request from '../lib/datocms';
-import CartItem from '../models/cartItem';
+import React from "react";
+import Container from "../components/Container";
+import CartItemRecord from "../components/CartItemRecord";
+import CartItem from "../models/cartItem";
+import { useRecoilState } from "recoil";
+import { cartState } from "../recoil";
 
 const CartPage = async () => {
-  // temporary
-  const query = `query productCopy {
-    product(filter: {id: {eq: "24919275"}}) {
-      id
-      name
-      price
-      description {
-        value
-      }
-      mainImage {
-        responsiveImage(imgixParams: {fit: crop, auto: format, h: "300", w: "300"}) {
-          src
-          srcSet
-          height
-          width
-        }
-      }
-      alternativeImages {
-        responsiveImage(imgixParams: {w: "300", auto: format, fit: crop, h: "300"}) {
-          height
-          width
-          srcSet
-          src
-        }
-      }
-    }
-  }`;
-  const data: any = await request({ query });
-  const product: Product = data.product;
-  const item = new CartItem(product, 1);
-  const cart = [item];
-  // 
+  const [cart, setCart] = useRecoilState<CartItem[]>(cartState);
+
+  // todo
+  // check if cart item already is in  the cart. If so, increment quantity instead of adding a new one by filtering and then change amount
 
   return (
     <Container>
-      <div className='flex flex-col gap-4'>
-        <h2 className='text-3xl'>Cart</h2>
-        <div className='w-full flex flex-col gap-4'>
-          {
-            cart && cart.map(item => (
-              <CartItemRecord item={ item } />
-            ))
-          }
-        </div>        
-      </div>
+      {
+        cart.length > 0 ? (
+          <div className='w-full lg:max-w-[60vw] flex flex-col gap-4'>
+            <h2 className='text-3xl'>Cart</h2>
+            <div className='flex flex-col gap-4'>
+              { 
+                cart && cart.map((item: CartItem) => (
+                  <CartItemRecord item={item} />
+                ))
+              }
+            </div>
+          </div>
+        ) : (
+          <div className="w-full h-[70vh] flex justify-center items-center">
+            <h1 className='text-center text-6xl font-bold'>
+              Your cart is empty.
+            </h1>            
+          </div>
+        )
+      }
     </Container>
-  )
-}
+  );
+};
 
-export default CartPage
+export default CartPage;
