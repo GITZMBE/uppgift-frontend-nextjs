@@ -1,9 +1,11 @@
 'use client';
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const Header = () => {
+  const path: string = usePathname();
   const [showHeaderBackground, setShowHeaderBackground] = useState<boolean>(false);
   
   const handleMouseEvent = () => {
@@ -15,6 +17,11 @@ const Header = () => {
   };  
 
   useEffect(() => {
+    if (path !== "/") {
+      setShowHeaderBackground(true);
+      return;
+    }
+
     window.addEventListener("scroll", _ => handleMouseEvent());
 
     return window.removeEventListener("scroll", handleMouseEvent);
@@ -25,8 +32,10 @@ const Header = () => {
       <Link href="/">
         <img src="/Logo.png" className="h-10" alt="" />
       </Link>
-      <nav className={`transition ${ showHeaderBackground ? '' : 'text-[#EEEEEE]' }`}>
+      <nav className={`flex gap-4 transition ${ showHeaderBackground ? '' : 'text-light' }`}>
+        <Link href="/about">About Us</Link>
         <Link href="/products">Products</Link>
+        <Link href="/cart">Cart</Link>
       </nav>
     </header>
   );

@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        
+        light: "#EEEEEE"
       },
       fontFamily: {
         Inter: "Inter"
