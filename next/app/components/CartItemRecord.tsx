@@ -5,7 +5,7 @@ import CartItem from '../models/cartItem'
 import { Image } from 'react-datocms';
 import { FaMinusCircle, FaPlusCircle } from 'react-icons/fa';
 import { RxCross2 } from 'react-icons/rx';
-import { cartState, updateCartItemQuantity } from '../recoil';
+import { cartState, removeCartItem, updateCartItemQuantity } from '../recoil';
 import { useRecoilState } from 'recoil';
 
 const CartItemRecord = ({ item }: { item: CartItem }) => {
@@ -14,7 +14,9 @@ const CartItemRecord = ({ item }: { item: CartItem }) => {
 
   useEffect(() => {
     if (quantity <= 0) {
-      // remove cartitem from cart
+      const filteredCart = removeCartItem(cart, item.id);
+      setCart(filteredCart);
+      return;
     }
 
     const newCart = updateCartItemQuantity(cart, item.id, quantity);
