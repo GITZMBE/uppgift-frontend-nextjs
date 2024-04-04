@@ -18,3 +18,10 @@ export const updateCartItemQuantity = (
     return item;
   });
 };
+
+export const removeCartItem = (
+  cart: CartItem[],
+  id: string
+) => {
+  return cart.filter(ct => ct.id !== id);
+};
