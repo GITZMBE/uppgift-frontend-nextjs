@@ -1,16 +1,7 @@
 import { atom } from "recoil";
 import CartItem from "../models/cartItem";
 
-interface ICartState {
-  key: string;
-  default: CartItem[];
-}
-
-const defaultCartState: ICartState = {
+export const cartState = atom<CartItem[]>({
   key: "cartState",
   default: []
-};
-
-export const cartState = atom<ICartState>({
-  ...defaultCartState
 });
