@@ -7,7 +7,7 @@ interface CartItem extends Product {
 class CartItem implements CartItem {
   Amount: number;
 
-  constructor(product: Product, amount: number = 0) {
+  constructor(product: Product, amount: number = 1) {
     this.id = product.id;
     this.name = product.name;
     this.price = product.price;
