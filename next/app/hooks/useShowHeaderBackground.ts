@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useShowHeaderBackground = ({ path }: { path: string }) => {
+export const useShowHeaderBackground = ( path: string ) => {
   const [showHeaderBackground, setShowHeaderBackground] = useState<boolean>(false);
   
   const handleMouseEvent = () => {
@@ -12,7 +12,7 @@ export const useShowHeaderBackground = ({ path }: { path: string }) => {
   };  
 
   useEffect(() => {
-    if (path !== "/") {
+    if (path !== "/" && path !== "/about") {
       setShowHeaderBackground(true);
       return;
     }
