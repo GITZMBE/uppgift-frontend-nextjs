@@ -1,27 +1,14 @@
 'use client';
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import CartItem from '../models/cartItem'
 import { Image } from 'react-datocms';
 import { FaMinusCircle, FaPlusCircle } from 'react-icons/fa';
 import { RxCross2 } from 'react-icons/rx';
-import { cartState, removeCartItem, updateCartItemQuantity } from '../recoil';
-import { useRecoilState } from 'recoil';
+import useUpdateCart from '../hooks/useUpdateCart';
 
 const CartItemRecord = ({ item }: { item: CartItem }) => {
-  const [cart, setCart] = useRecoilState<CartItem[]>(cartState);
-  const [quantity, setQuantity] = useState<number>(item.quantity);
-
-  useEffect(() => {
-    if (quantity <= 0) {
-      const filteredCart = removeCartItem(cart, item.id);
-      setCart(filteredCart);
-      return;
-    }
-
-    const newCart = updateCartItemQuantity(cart, item.id, quantity);
-    setCart(newCart);
-  }, [quantity]);
+  const { quantity, setQuantity } = useUpdateCart( item.id, item.quantity );
 
   return (
     <div className='group relative flex justify-between gap-12 w-full p-4 pr-16 rounded-lg border-2 border-gray-300' onClick={_ => {console.log("hello")}}>
