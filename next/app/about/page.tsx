@@ -32,7 +32,7 @@ const About = async () => {
           <h1 className="text-[#EEEEEE] text-8xl text-center font-bold">{ aboutpage.title } Us</h1>
         </div>
       </div>
-      <div className="flex flex-col gap-4 w-full py-4 px-4 sm:px-8 md:px-12 [&_h2]:font-bold [&_h2]:text-2xl [&_h3]:font-bold [&_h3]:text-xl [&_blockquote]:italic before:absolute before:content-[&quote;]">
+      <div className="flex flex-col gap-4 w-full py-4 px-4 sm:px-8 md:px-12 [&_h2]:font-bold [&_h2]:text-2xl [&_h3]:font-bold [&_h3]:text-xl [&_blockquote]:italic">
         <h1 className="text-3xl font-bold">{ aboutpage.title }</h1>
         <StructuredText data={ aboutpage.content.value } />
       </div>
