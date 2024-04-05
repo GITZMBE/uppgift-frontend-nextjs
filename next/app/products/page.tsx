@@ -23,7 +23,7 @@ const ProductsPage = async () => {
       }
     }
   }`;
-  const data: any = await request({ query });
+  const data = await request<{ allProducts: Product[] }>({ query });
   const products: Product[] = data.allProducts;
 
   return (
