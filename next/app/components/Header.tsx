@@ -3,29 +3,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { useShowHeaderBackground } from "../hooks";
 
 const Header = () => {
   const path: string = usePathname();
-  const [showHeaderBackground, setShowHeaderBackground] = useState<boolean>(false);
-  
-  const handleMouseEvent = () => {
-    if (window.scrollY > 48) {
-      setShowHeaderBackground(true);
-    } else if (window.scrollY <= 48) {
-      setShowHeaderBackground(false);
-    }
-  };  
+  const [pathname, setPathname] = useState<string>(path || "");
+  const {showHeaderBackground, setShowHeaderBackground} = useShowHeaderBackground(pathname);
 
   useEffect(() => {
-    if (path !== "/") {
-      setShowHeaderBackground(true);
-      return;
-    }
-
-    window.addEventListener("scroll", _ => handleMouseEvent());
-
-    return window.removeEventListener("scroll", handleMouseEvent);
-  }, []);  
+    setPathname(path);
+  }, [path]);
 
   return (
     <header className={`fixed flex justify-between items-center w-full py-4 px-4 sm:px-8 md:px-12 transition ${ showHeaderBackground ? 'bg-white shadow-lg' : 'bg-transparent' } z-50`}>
