@@ -4,7 +4,7 @@ import { cartState, getCartItemQuantity, removeCartItem, updateCartItemQuantity 
 import { useEffect, useState } from "react";
 
 
-const useUpdateCart = ( id: string ) => {
+export const useUpdateCart = ( id: string ) => {
   const [cart, setCart] = useRecoilState<CartItem[]>(cartState);
   const qty = getCartItemQuantity(cart, id);
   const [quantity, setQuantity] = useState<number>(qty);
@@ -22,5 +22,3 @@ const useUpdateCart = ( id: string ) => {
 
   return { quantity, setQuantity };
 };
-
-export default useUpdateCart;

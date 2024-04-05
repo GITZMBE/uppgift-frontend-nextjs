@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useShowModal = () => {
+export const useShowModal = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
 
   useEffect(() => {
@@ -15,5 +15,3 @@ const useShowModal = () => {
 
   return {showModal, setShowModal};
 };
-
-export default useShowModal;
