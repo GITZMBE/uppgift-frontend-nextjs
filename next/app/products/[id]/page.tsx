@@ -2,6 +2,7 @@
 
 import Container from '@/app/components/Container'
 import Modal from '@/app/components/Modal';
+import useShowModal from '@/app/hooks/useShowModal';
 import useUpdateCart from '@/app/hooks/useUpdateCart';
 import request from '@/app/lib/datocms';
 import CartItem from '@/app/models/cartItem';
@@ -13,7 +14,7 @@ import { useRecoilState } from 'recoil';
 
 const ProductPage = ({ params }: { params: { id: string } }) => {
   const [product, setProduct] = useState<Product | null>(null);
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const {showModal, setShowModal} = useShowModal();
   const [cart, setCart] = useRecoilState<CartItem[]>(cartState);
   const {quantity, setQuantity} = useUpdateCart(params.id);
 
@@ -49,18 +50,6 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
       setProduct(data.product);
     })();
   }, []);
-
-  // useShowModel
-
-  useEffect(() => {
-    if (!showModal) {
-      return;
-    }
-
-    setTimeout(() => {
-      setShowModal(false);
-    }, 1500);
-  }, [showModal]);
 
   const handleAddCartItem = () => {
     if (!product) {
