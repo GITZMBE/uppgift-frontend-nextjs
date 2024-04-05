@@ -1,5 +1,6 @@
 import { Image, StructuredText } from "react-datocms";
 import request from "../src/lib/datocms";
+import StartPage from "@/src/models/startpage";
 
 const Home = async () => {
   const query = `query productCopy {
@@ -19,7 +20,7 @@ const Home = async () => {
       }
     }
   }`;
-  const data: any = await request({ query });
+  const data = await request<{ startpage: StartPage }>({ query });
   const startpage = data.startpage;
 
   return (
