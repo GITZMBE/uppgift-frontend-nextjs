@@ -7,7 +7,7 @@ import CartItem from "../models/cartItem";
 import { useRecoilState } from "recoil";
 import { cartState } from "../recoil";
 
-const CartPage = async () => {
+const CartPage = () => {
   const [cart, setCart] = useRecoilState<CartItem[]>(cartState);
 
   // todo
