@@ -1,8 +1,8 @@
 import React from "react";
-import Container from "../components/Container";
-import request from "../lib/datocms";
-import ProductRecord from "../components/ProductRecord";
-import Product from "../models/product";
+import Container from "../../src/components/Container";
+import request from "../../src/lib/datocms";
+import ProductRecord from "../../src/components/ProductRecord";
+import Product from "../../src/models/product";
 
 const ProductsPage = async () => {
   const query = `query productCopy {
