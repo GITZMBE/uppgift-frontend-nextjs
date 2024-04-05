@@ -48,6 +48,8 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
     })();
   }, []);
 
+  // useShowModel
+
   useEffect(() => {
     if (!showModal) {
       return;
