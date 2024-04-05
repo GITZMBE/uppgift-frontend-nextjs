@@ -34,7 +34,7 @@ const Home = async () => {
                 <h1 className="text-light text-6xl text-center font-bold">{ startpage.title }</h1>
               </div>
             </div>
-            <div className="w-full px-4 sm:px-8 md:px-12 py-4">
+            <div className="flex flex-col gap-4 w-full px-4 sm:px-8 md:px-12 py-4">
               <StructuredText data={startpage.content.value} />
             </div>          
           </>
