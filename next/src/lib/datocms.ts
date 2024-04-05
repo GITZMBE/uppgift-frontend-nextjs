@@ -3,13 +3,10 @@ import { GraphQLClient } from "graphql-request";
 interface RequestOptions {
   query: string;
   variable?: Record<string, any>;
-  preview?: boolean;
 };
 
-const request: React.FC<RequestOptions> = ({ query, variable, preview }) => {
-  const endpoint: string = preview
-    ? "https://graphql.datocms.com/preview"
-    : "https://graphql.datocms.com";
+const request = <T>({ query, variable }: RequestOptions) => {
+  const endpoint: string = process.env.NEXT_PUBLIC_DATOCMS_API_BASEURL || "";
 
   const client = new GraphQLClient(endpoint, {
     headers: {
@@ -17,7 +14,7 @@ const request: React.FC<RequestOptions> = ({ query, variable, preview }) => {
     },
   });
 
-  return client.request(query, variable);
+  return client.request<T>(query, variable);
 };
 
 export default request;
