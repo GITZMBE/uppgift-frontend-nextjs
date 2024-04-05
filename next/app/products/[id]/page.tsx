@@ -2,12 +2,11 @@
 
 import Container from '@/app/components/Container'
 import Modal from '@/app/components/Modal';
-import useShowModal from '@/app/hooks/useShowModal';
-import useUpdateCart from '@/app/hooks/useUpdateCart';
+import {useShowModal, useUpdateCart} from '@/app/hooks';
 import request from '@/app/lib/datocms';
 import CartItem from '@/app/models/cartItem';
 import Product from '@/app/models/product';
-import { cartState, getCartItemQuantity } from '@/app/recoil';
+import { cartState } from '@/app/recoil';
 import React, { useEffect, useState } from 'react'
 import { Image, StructuredText } from 'react-datocms';
 import { useRecoilState } from 'recoil';
