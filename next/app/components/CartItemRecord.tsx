@@ -8,7 +8,7 @@ import { RxCross2 } from 'react-icons/rx';
 import useUpdateCart from '../hooks/useUpdateCart';
 
 const CartItemRecord = ({ item }: { item: CartItem }) => {
-  const { quantity, setQuantity } = useUpdateCart( item.id, item.quantity );
+  const { quantity, setQuantity } = useUpdateCart( item.id );
 
   return (
     <div className='group relative flex justify-between gap-12 w-full p-4 pr-16 rounded-lg border-2 border-gray-300' onClick={_ => {console.log("hello")}}>
