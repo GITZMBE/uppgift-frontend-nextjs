@@ -8,7 +8,7 @@ import { RxCross2 } from 'react-icons/rx';
 import useUpdateCart from '../hooks/useUpdateCart';
 
 const CartItemRecord = ({ item }: { item: CartItem }) => {
-  const { quantity, setQuantity } = useUpdateCart( item.id, item.quantity );
+  const { quantity, setQuantity } = useUpdateCart( item.id );
 
   return (
     <div className='group relative flex justify-between gap-12 w-full p-4 pr-16 rounded-lg border-2 border-gray-300' onClick={_ => {console.log("hello")}}>
@@ -24,7 +24,7 @@ const CartItemRecord = ({ item }: { item: CartItem }) => {
           <span className='w-8 text-center text-xl'>{ quantity }</span>
           <button className='flex justify-center items-center w-12 aspect-square rounded-full text-3xl' onClick={_ => setQuantity(quantity + 1)}><FaPlusCircle size={36} className="opacity-75 hover:opacity-100" /></button>
         </div>
-        <span className='w-20 text-center text-2xl'>$ { item.price * quantity }</span>
+        <span className='w-28 text-center text-2xl'>$ { item.price * quantity }</span>
         <RxCross2 size={24} className='absolute right-4 hidden group-hover:block opacity-50 hover:opacity-100 cursor-pointer' onClick={_ => setQuantity(0)} />
       </div>
     </div>
