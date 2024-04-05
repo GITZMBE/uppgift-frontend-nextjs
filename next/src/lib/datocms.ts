@@ -5,7 +5,7 @@ interface RequestOptions {
   variable?: Record<string, any>;
 };
 
-const request = <T>({ query, variable }: RequestOptions) => {
+const request = <T>({ query, variable }: RequestOptions) : Promise<T> => {
   const endpoint: string = process.env.NEXT_PUBLIC_DATOCMS_API_BASEURL || "";
 
   const client = new GraphQLClient(endpoint, {
