@@ -45,7 +45,7 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
           }
         }
       }`;
-      const data: any = await request({ query });
+      const data = await request<{ product: Product }>({ query });
       setProduct(data.product);
     })();
   }, []);
