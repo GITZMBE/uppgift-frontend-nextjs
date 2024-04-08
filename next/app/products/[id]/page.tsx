@@ -58,6 +58,7 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
     setShowModal(true);
     if (quantity === 0) {
       setCart([...cart, new CartItem(product)]);
+      setQuantity(quantity + 1);
     } else {
       setQuantity(quantity + 1);
     }
@@ -80,8 +81,9 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
             />
             <div className='flex gap-2'>
               {product.alternativeImages &&
-                product.alternativeImages.map((img) => (
+                product.alternativeImages.map((img, i) => (
                   <Image
+                    key={i}
                     data={img.responsiveImage}
                     style={{ width: 100 }}
                     className='aspect-square'
