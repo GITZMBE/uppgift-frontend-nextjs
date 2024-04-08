@@ -17,7 +17,7 @@ const CartPage = () => {
           <h2 className='text-3xl'>Cart</h2>
           <div className='flex flex-col gap-4'>
             {cart &&
-              cart.map((item: CartItem) => <CartItemRecord item={item} />)}
+              cart.map((item: CartItem) => <CartItemRecord key={item.id} item={item} />)}
           </div>
         </div>
       ) : (
