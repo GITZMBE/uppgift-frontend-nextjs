@@ -1,5 +1,23 @@
 import { atom } from "recoil";
 import CartItem from "../models/cartItem";
+import OrderDetails from "../models/orderDetails";
+
+export const orderState = atom<OrderDetails>({
+  key: "orderState",
+  default: {
+    cardNumber: "",
+    expire: "",
+    cvc: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
+    phone: ""
+  }
+});
 
 export const cartState = atom<CartItem[]>({
   key: "cartState",
@@ -35,4 +53,13 @@ export const getCartItemQuantity = (cart: CartItem[], id: string): number => {
 
 export const removeCartItem = (cart: CartItem[], id: string) => {
   return cart.filter((ct) => ct.id !== id);
+};
+
+export const getCartValue = (cart: CartItem[]): number => {
+  let total = 0;
+  for (const item of cart) {
+    total += item.price * item.quantity
+  }
+
+  return total;
 };
