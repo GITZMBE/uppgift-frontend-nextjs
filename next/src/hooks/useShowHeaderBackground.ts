@@ -12,11 +12,6 @@ export const useShowHeaderBackground = ( path: string ) => {
   };  
 
   useEffect(() => {
-    if (path !== "/" && path !== "/about") {
-      setShowHeaderBackground(true);
-      return;
-    }
-
     window.addEventListener("scroll", _ => handleMouseEvent());
 
     return window.removeEventListener("scroll", handleMouseEvent);

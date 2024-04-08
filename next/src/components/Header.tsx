@@ -18,20 +18,22 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed flex justify-between items-center w-full py-4 px-4 sm:px-8 md:px-12 transition ${
-        hasHero ? "" : "shadow-lg"
+      className={`fixed flex justify-between items-center w-full py-4 px-4 sm:px-8 md:px-12 transition z-50 ${
+        !hasHero && showHeaderBackground && "bg-white"
       } ${
         hasHero && showHeaderBackground
           ? "bg-white shadow-lg"
           : "bg-transparent"
-      } z-50`}
+      } ${
+        showHeaderBackground && "shadow-lg"
+      }`}
     >
       <Link href='/'>
         <img src='/Logo.png' className='h-10' alt='' />
       </Link>
       <nav
         className={`flex gap-4 transition ${
-          showHeaderBackground ? "" : "text-light"
+          showHeaderBackground || !hasHero ? "" : "text-light"
         }`}
       >
         <Link href='/about'>About Us</Link>
