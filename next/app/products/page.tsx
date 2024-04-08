@@ -1,30 +1,12 @@
 import React from "react";
-import Container from "../components/Container";
-import request from "../lib/datocms";
-import ProductRecord from "../components/ProductRecord";
-import Product from "../models/product";
+import Container from "../../src/components/Container";
+import request from "../../src/lib/datocms";
+import ProductRecord from "../../src/components/ProductRecord";
+import Product from "../../src/models/product";
 
 const ProductsPage = async () => {
-  const query = `query productCopy {
-    allProducts {
-      id
-      name
-      price
-      description {
-        value
-      }
-      mainImage {
-        responsiveImage(imgixParams: {fit: crop, auto: format, h: "100", w: "100"}) {
-          height
-          width
-          srcSet
-          src
-        }
-      }
-    }
-  }`;
-  const data: any = await request({ query });
-  const products: Product[] = data.allProducts;
+  const data = await fetch(process.env.NEXT_PUBLIC_BASEURL + "/api/products", { method: 'GET', cache: "no-cache" });
+  const { products }: { products: Product[] } = await data.json();
 
   return (
     <Container>
@@ -33,10 +15,11 @@ const ProductsPage = async () => {
           Featured Products
         </h1>
         <div className='flex justify-start basis-auto flex-wrap flex-grow-1 gap-4'>
-          {products &&
-            products.map((product) => (
+          {
+            products && products.map((product: Product) => (
               <ProductRecord product={product} key={product.id} />
-            ))}
+            ))
+          }
         </div>
       </div>
     </Container>

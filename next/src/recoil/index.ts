@@ -20,23 +20,28 @@ export const updateCartItemQuantity = (
 };
 
 const cartItemExist = (cart: CartItem[], id: string): boolean => {
-  return cart.some(item => item.id == id);
+  return cart.some((item) => item.id == id);
 };
 
 export const getCartItemQuantity = (cart: CartItem[], id: string): number => {
   const exist = cartItemExist(cart, id);
 
   if (exist) {
-    return cart.find(item => item.id === id)!.quantity;
+    return cart.find((item) => item.id === id)!.quantity;
   }
 
   return 0;
 };
 
+export const removeCartItem = (cart: CartItem[], id: string) => {
+  return cart.filter((ct) => ct.id !== id);
+};
 
-export const removeCartItem = (
-  cart: CartItem[],
-  id: string
-) => {
-  return cart.filter(ct => ct.id !== id);
+export const getCartValue = (cart: CartItem[]): number => {
+  let total = 0;
+  for (const item of cart) {
+    total += item.price * item.quantity
+  }
+
+  return total;
 };
