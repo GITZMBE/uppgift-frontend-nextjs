@@ -18,7 +18,7 @@ export const Input = ({ placeholder, value, setValue, pattern, name, required }:
 
   return (
     <input 
-      className={`w-full py-1 px-2 rounded-lg border-2 opacity-75 focus:opacity-100 outline-none ${ isValidInput(value[name], pattern || ".*") ? 'valid:border-green-500' : 'border-red-500' }  `} 
+      className={`w-full py-1 px-2 rounded-lg border-2 opacity-75 focus:opacity-100 outline-none ${ isValidInput(value[name], pattern || ".*") ? 'valid:border-green-500' : isRequired ? 'invalid:border-red-500' : 'border-gray-300' }  `} 
       type="text" 
       name={ name }
       placeholder={ `${placeholder}${ isRequired ? ' *' : '' }` || "input" }
