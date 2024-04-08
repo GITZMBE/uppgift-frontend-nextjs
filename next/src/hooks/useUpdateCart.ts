@@ -1,12 +1,17 @@
 import { useRecoilState } from "recoil";
 import CartItem from "../models/cartItem";
-import { cartState, removeCartItem, updateCartItemQuantity } from "../recoil";
+import {
+  cartState,
+  getCartItemQuantity,
+  removeCartItem,
+  updateCartItemQuantity,
+} from "../recoil";
 import { useEffect, useState } from "react";
 
-
-const useUpdateCart = ( id: string, qty: number ) => {
-  const [quantity, setQuantity] = useState<number>(qty);
+export const useUpdateCart = (id: string) => {
   const [cart, setCart] = useRecoilState<CartItem[]>(cartState);
+  const qty = getCartItemQuantity(cart, id);
+  const [quantity, setQuantity] = useState<number>(qty);
 
   useEffect(() => {
     if (quantity <= 0) {
@@ -21,5 +26,3 @@ const useUpdateCart = ( id: string, qty: number ) => {
 
   return { quantity, setQuantity };
 };
-
-export default useUpdateCart;
