@@ -24,7 +24,7 @@ export const Input = ({ placeholder, value, setValue, pattern, name, required }:
       placeholder={ `${placeholder}${ isRequired ? ' *' : '' }` || "input" }
       pattern={ pattern?.toString() || ".*" }
       value={ value[name] } 
-      onChange={e => {setValue({ ...value, [e.target.name]: e.target.value }); console.log(e.target.value, isValidInput(value[name], pattern || ".*") )}} 
+      onChange={e => setValue({ ...value, [e.target.name]: e.target.value })} 
       required={ isRequired }
     />
   )
