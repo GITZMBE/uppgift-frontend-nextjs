@@ -1,5 +1,23 @@
 import { atom } from "recoil";
 import CartItem from "../models/cartItem";
+import OrderDetails from "../models/orderDetails";
+
+export const orderState = atom<OrderDetails>({
+  key: "orderState",
+  default: {
+    cardNumber: "",
+    expire: "",
+    cvc: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
+    phone: ""
+  }
+});
 
 export const cartState = atom<CartItem[]>({
   key: "cartState",
