@@ -3,5 +3,12 @@
 @tailwind utilities;
 
 @layer utilities {
-  
+  .scroll-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
