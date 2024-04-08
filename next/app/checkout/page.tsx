@@ -73,10 +73,13 @@ const CheckoutPage = () => {
           <h2 className='text-2xl font-bold border-b-2 py-4 border-gray-300'>
             Payment Methods
           </h2>
-          <form className="space-y-4" id="paymentForm" onSubmit={handleSubmit}>
+          <form className="space-y-4" id="paymentForm" onSubmit={e => handleSubmit(e)}>
             <div className="flex gap-4">
               <Input name="firstName" value={input} setValue={setInput} placeholder="First Name" pattern="^[A-Za-z]+(?:[-' ][A-Za-z]+)?$" required={true} />
               <Input name="lastName" value={input} setValue={setInput} placeholder="Last Name" pattern="^[A-Za-z]+(?:[-' ][A-Za-z]+)?$" required={true} />
+            </div>
+            <div className="flex gap-4">
+              <Input name="email" value={input} setValue={setInput} placeholder="Email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required={true} />
             </div>
             <div className="flex gap-4">
               <Input name="address" value={input} setValue={setInput} placeholder="Address" pattern="^[a-öA-Ö]+\w\s\d+$" required={true} />
