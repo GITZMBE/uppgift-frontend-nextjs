@@ -36,3 +36,12 @@ export const getCartItemQuantity = (cart: CartItem[], id: string): number => {
 export const removeCartItem = (cart: CartItem[], id: string) => {
   return cart.filter((ct) => ct.id !== id);
 };
+
+export const getCartValue = (cart: CartItem[]): number => {
+  let total = 0;
+  for (const item of cart) {
+    total += item.price * item.quantity
+  }
+
+  return total;
+};
