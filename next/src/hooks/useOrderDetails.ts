@@ -7,6 +7,7 @@ export const useOrderDetails = () => {
     cvc: "",
     firstName: "",
     lastName: "",
+    email: "",
     address: "",
     city: "",
     state: "",
