@@ -3,17 +3,16 @@
 import CartItemRecord from "@/src/components/CartItemRecord";
 import {Input} from "@/src/components";
 import CartItem from "@/src/models/cartItem";
-import { cartState, getCartValue } from "@/src/recoil";
+import { cartState, getCartValue, orderState } from "@/src/recoil";
 import React from "react";
 import { useRecoilState } from "recoil";
 import { useRouter } from "next/navigation";
-import { useOrderDetails } from "@/src/hooks";
 
 const CheckoutPage = () => {
   const router = useRouter();
   const [cart, setCart] = useRecoilState(cartState);
   const deliveryFee = 0;
-  const { input, setInput } = useOrderDetails();
+  const [ input, setInput ] = useRecoilState(orderState);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

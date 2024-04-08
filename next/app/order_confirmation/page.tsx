@@ -1,12 +1,29 @@
 "use client";
 
-import { useOrderDetails } from "@/src/hooks";
+import { orderState } from "@/src/recoil";
 import Link from "next/link";
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
+import { useRecoilState } from "recoil";
 
 const OrderConfirmationPage = () => {
-  
+  const [ input, setInput ] = useRecoilState(orderState);
+
+  const handleGoToHomePage = () => {
+    setInput({
+      cardNumber: "",
+      expire: "",
+      cvc: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      address: "",
+      city: "",
+      state: "",
+      zip: "",
+      phone: ""
+    });
+  };
 
   return (
     <div className='w-full min-h-screen flex justify-center items-center'>
@@ -23,21 +40,7 @@ const OrderConfirmationPage = () => {
         </p>
         <Link
           href='/'
-          onClick={(_) =>
-            setInput({
-              cardNumber: "",
-              expire: "",
-              cvc: "",
-              firstName: "",
-              lastName: "",
-              email: "",
-              address: "",
-              city: "",
-              state: "",
-              zip: "",
-              phone: "",
-            })
-          }
+          onClick={handleGoToHomePage}
           className='bg-black py-2 px-4 font-bold text-light hover:text-white'
         >
           Go back here
