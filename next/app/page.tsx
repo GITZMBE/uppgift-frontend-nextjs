@@ -24,7 +24,7 @@ const Home = async () => {
   const startpage = data.startpage;
 
   return (
-    <div className='w-full min-h-[200vh]'>
+    <div className='w-full min-h-screen'>
       {startpage && (
         <>
           <div className='relative flex items-center max-h-[50vh] overflow-hidden'>

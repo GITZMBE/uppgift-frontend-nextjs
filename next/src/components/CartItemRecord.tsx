@@ -12,13 +12,13 @@ const CartItemRecord = ({ item }: { item: CartItem }) => {
 
   return (
     <div
-      className='group relative flex justify-between gap-12 w-full p-4 pr-16 rounded-lg border-2 border-gray-300'
+      className='group relative flex justify-between gap-12 w-full p-4 pr-16 rounded-lg shadow-md'
       onClick={(_) => {}}
     >
       <div className='flex items-center gap-4'>
         <Image
           data={item.mainImage.responsiveImage}
-          style={{ width: 100, height: 100 }}
+          style={{ width: 100, height: 100, borderRadius: 8 }}
         />
         <div className='flex flex-col justify-between h-full'>
           <h2 className='text-xl font-bold'>{item.name}</h2>
