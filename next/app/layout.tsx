@@ -1,6 +1,6 @@
 // import type { Metadata } from "next";
 import "./globals.css";
-import Header from "../src/components/Header";
+import Header from "../src/components/ui/Header";
 import { RecoilRoot } from "recoil";
 import ContextWrapper from "@/src/components/ContextWrapper";
 
@@ -31,8 +31,10 @@ export default function RootLayout({
         />
       </head>
       <body className='font-Inter'>
-        <Header />
-        <ContextWrapper>{children}</ContextWrapper>
+        <ContextWrapper>
+          <Header />
+          {children}
+        </ContextWrapper>
       </body>
     </html>
   );
