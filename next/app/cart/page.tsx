@@ -20,7 +20,7 @@ const CartPage = () => {
             <div className='flex flex-col gap-4'>
               {cart &&
                 cart.map((item: CartItem) => (
-                  <CartItemRecord item={item} />
+                  <div key={item.id}><CartItemRecord item={item} /></div>
                 ))
               }
             </div>
