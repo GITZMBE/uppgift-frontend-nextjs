@@ -20,8 +20,9 @@ const CartPage = () => {
             <div className='flex flex-col gap-4'>
               {cart &&
                 cart.map((item: CartItem) => (
-                  <CartItemRecord key={item.id} item={item} />
-                ))}
+                  <CartItemRecord item={item} />
+                ))
+              }
             </div>
           </div>
           <Link href='/checkout' className="py-2 px-4 bg-black text-light hover:text-white">Go to checkout</Link>

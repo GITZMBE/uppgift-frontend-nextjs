@@ -17,7 +17,7 @@ const ProductsPage = async () => {
         <div className='flex justify-start basis-auto flex-wrap flex-grow-1 gap-4'>
           {
             products && products.map((product: Product) => (
-              <ProductRecord product={product} key={product.id} />
+              <ProductRecord key={product.id} product={product} />
             ))
           }
         </div>

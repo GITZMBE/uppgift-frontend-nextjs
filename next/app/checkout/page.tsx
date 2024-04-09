@@ -28,7 +28,7 @@ const CheckoutPage = () => {
         <div className='flex flex-col h-full gap-4 pb-4 border-b-2 border-gray-300 overflow-y-scroll scroll-hidden'>
           {cart &&
             cart.map((item: CartItem) => (
-              <CartItemRecord key={item.id} item={item} />
+              <CartItemRecord item={item} />
             ))
           }
         </div>
