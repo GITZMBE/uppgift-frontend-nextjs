@@ -1,27 +1,9 @@
 import React from "react";
-import request from "../../src/lib/datocms";
 import { Image, StructuredText } from "react-datocms";
 
 const About = async () => {
-  const query = `query productCopy {
-    page(filter: {slug: {eq: "about"}}) {
-      id
-      title
-      mainImage {
-        responsiveImage(imgixParams: {auto: format, w: "2000", fit: crop, h: "2000"}) {
-          srcSet
-          src
-          width
-          height
-        }
-      }
-      content {
-        value
-      }
-    }
-  }`;
-  const data: any = await request({ query });
-  const aboutpage = data.page;
+  const data = await fetch(process.env.NEXT_PUBLIC_BASEURL + "/api/about");
+  const { aboutpage }: { aboutpage: any } = await data.json();
 
   return (
     <>

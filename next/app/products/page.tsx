@@ -1,6 +1,5 @@
 import React from "react";
 import Container from "../../src/components/Container";
-import request from "../../src/lib/datocms";
 import ProductRecord from "../../src/components/ProductRecord";
 import Product from "../../src/models/product";
 

@@ -1,31 +1,36 @@
 import request from "@/src/lib/datocms";
 import Product from "@/src/models/product";
 
-export async function GET(req: Request, res: Response) {
-  // console.log(req)
-  // const url = new URL(req.url);
-  // const searchParams = new URLSearchParams(url.searchParams);
-  // console.log(searchParams)
-  // const { id } = searchParams;
-  const id = 24919271;
+export async function GET(req: Request, context: any) {
+  const { params } = context;
+  const { id } = params;
+  
   const query = `query productCopy {
-    Product(filter: {id: {eq: "${id}"}}) {
+    product(filter: {id: {eq: "${id}"}}) {
       id
-      name
       price
+      name
       description {
         value
       }
-      mainImage {
-        responsiveImage(imgixParams: {fit: crop, auto: format, h: "100", w: "100"}) {
-          height
-          width
-          srcSet
+      alternativeImages {
+        responsiveImage(imgixParams: {auto: format, h: "100", w: "100", fit: crop}) {
           src
+          srcSet
+          width
+          height
+        }
+      }
+      mainImage {
+        responsiveImage(imgixParams: {auto: format, fit: crop, h: "300", w: "300"}) {
+          height
+          src
+          srcSet
+          width
         }
       }
     }
   }`;
-  const { Product } = await request<{ Product: Product }>({ query });
-  return new Response(JSON.stringify({ product: Product}));
-};
+  const { product } = await request<{ product: Product }>({ query });
+  return new Response(JSON.stringify({ product: product }));
+}
