@@ -31,8 +31,10 @@ export default function RootLayout({
         />
       </head>
       <body className='font-Inter'>
-        <Header />
-        <ContextWrapper>{children}</ContextWrapper>
+        <ContextWrapper>
+          <Header />
+          {children}
+        </ContextWrapper>
       </body>
     </html>
   );
