@@ -1,9 +1,8 @@
-"use client";
-
 // import type { Metadata } from "next";
 import "./globals.css";
 import Header from "../src/components/Header";
 import { RecoilRoot } from "recoil";
+import ContextWrapper from "@/src/components/ContextWrapper";
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",
@@ -16,7 +15,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <RecoilRoot>
       <html lang='en'>
         <head>
           <meta name='title' content='Create Next App' />
@@ -34,9 +32,10 @@ export default function RootLayout({
         </head>
         <body className='font-Inter'>
           <Header />
-          {children}
+          <ContextWrapper>
+            {children}
+          </ContextWrapper>
         </body>
       </html>
-    </RecoilRoot>
   );
 }
