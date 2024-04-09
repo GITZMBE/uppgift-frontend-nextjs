@@ -8,8 +8,7 @@ import { usePageHasHero, useShowHeaderBackground } from "../../hooks";
 const Header = () => {
   const path: string = usePathname();
   const [pathname, setPathname] = useState<string>(path || "");
-  const { showHeaderBackground, setShowHeaderBackground } =
-    useShowHeaderBackground(pathname);
+  const { showHeaderBackground, setShowHeaderBackground } = useShowHeaderBackground(pathname);
   const { hasHero } = usePageHasHero(pathname);
 
   useEffect(() => {
