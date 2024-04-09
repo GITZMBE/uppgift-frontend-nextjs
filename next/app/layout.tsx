@@ -1,6 +1,6 @@
 // import type { Metadata } from "next";
 import "./globals.css";
-import Header from "../src/components/Header";
+import Header from "../src/components/ui/Header";
 import { RecoilRoot } from "recoil";
 import ContextWrapper from "@/src/components/ContextWrapper";
 
