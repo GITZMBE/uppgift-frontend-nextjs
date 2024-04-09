@@ -5,3 +5,4 @@ export * from './Modal';
 export * from './ProductRecord';
 export * from './Input';
 export * from './ProductDetail';
+export * from './ContextWrapper';
