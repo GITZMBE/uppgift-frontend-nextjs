@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Product from "../models/product";
+import Product from "../../models/product";
 import { Image, StructuredText } from "react-datocms";
-import { useShowModal, useUpdateCart } from "../hooks";
+import { useShowModal, useUpdateCart } from "../../hooks";
 import { useRecoilState } from "recoil";
-import CartItem from "../models/cartItem";
-import { cartState } from "../recoil";
+import CartItem from "../../models/cartItem";
+import { cartState } from "../../recoil";
 
 interface Props {
   product: Product | null;

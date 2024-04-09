@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { usePageHasHero, useShowHeaderBackground } from "../hooks";
+import { usePageHasHero, useShowHeaderBackground } from "../../hooks";
 
 const Header = () => {
   const path: string = usePathname();
@@ -24,9 +24,7 @@ const Header = () => {
         hasHero && showHeaderBackground
           ? "bg-white shadow-lg"
           : "bg-transparent"
-      } ${
-        showHeaderBackground && "shadow-lg"
-      }`}
+      } ${showHeaderBackground && "shadow-lg"}`}
     >
       <Link href='/'>
         <img src='/Logo.png' className='h-10' alt='' />
