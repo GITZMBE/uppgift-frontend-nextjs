@@ -1,6 +1,5 @@
 import React from "react";
 import Container from "../../src/components/Container";
-import request from "../../src/lib/datocms";
 import ProductRecord from "../../src/components/ProductRecord";
 import Product from "../../src/models/product";
 
@@ -17,7 +16,7 @@ const ProductsPage = async () => {
         <div className='flex justify-start basis-auto flex-wrap flex-grow-1 gap-4'>
           {
             products && products.map((product: Product) => (
-              <ProductRecord product={product} key={product.id} />
+              <ProductRecord key={product.id} product={product} />
             ))
           }
         </div>

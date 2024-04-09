@@ -1,27 +1,9 @@
 import { Image, StructuredText } from "react-datocms";
-import request from "../src/lib/datocms";
 import StartPage from "@/src/models/startpage";
 
 const Home = async () => {
-  const query = `query productCopy {
-    startpage {
-      title
-      id
-      mainImage {
-        responsiveImage(imgixParams: {fit: crop, auto: format}) {
-          src
-          srcSet
-          height
-          width
-        }
-      }
-      content {
-        value
-      }
-    }
-  }`;
-  const data = await request<{ startpage: StartPage }>({ query });
-  const startpage = data.startpage;
+  const data = await fetch(process.env.NEXT_PUBLIC_BASEURL + "/api/start", { method: 'GET', cache: 'no-cache'});
+  const { startpage }: { startpage: StartPage } = await data.json();
 
   return (
     <div className='w-full min-h-screen'>

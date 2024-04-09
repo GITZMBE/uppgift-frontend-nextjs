@@ -28,7 +28,9 @@ const CheckoutPage = () => {
         <div className='flex flex-col h-full gap-4 pb-4 border-b-2 border-gray-300 overflow-y-scroll scroll-hidden'>
           {cart &&
             cart.map((item: CartItem) => (
-              <CartItemRecord key={item.id} item={item} />
+              <div key={item.id}>
+                <CartItemRecord item={item} />
+              </div>
             ))
           }
         </div>
@@ -53,7 +55,7 @@ const CheckoutPage = () => {
           </span>
         </div>
       </div>
-      <div className='w-full flex flex-col gap-8'>
+      <form id="paymentForm" className='w-full flex flex-col gap-8' onSubmit={e => handleSubmit(e)}>
         <div className='flex flex-col gap-4 p-6 shadow-lg rounded-xl'>
           <h2 className='text-2xl font-bold border-b-2 py-4 border-gray-300'>
             Delivery Info
@@ -72,7 +74,7 @@ const CheckoutPage = () => {
           <h2 className='text-2xl font-bold border-b-2 py-4 border-gray-300'>
             Payment Methods
           </h2>
-          <form className="space-y-4" id="paymentForm" onSubmit={e => handleSubmit(e)}>
+          <div className="space-y-4">
             <div className="flex gap-4">
               <Input name="firstName" value={input} setValue={setInput} placeholder="First Name" pattern="^[A-Za-z]+(?:[-' ][A-Za-z]+)?$" required={true} />
               <Input name="lastName" value={input} setValue={setInput} placeholder="Last Name" pattern="^[A-Za-z]+(?:[-' ][A-Za-z]+)?$" required={true} />
@@ -96,9 +98,9 @@ const CheckoutPage = () => {
                 Purchase
               </button>
             </div>
-          </form>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
