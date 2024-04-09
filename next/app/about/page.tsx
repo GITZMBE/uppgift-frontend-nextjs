@@ -1,9 +1,10 @@
+import AboutPage from "@/src/models/aboutpage";
 import React from "react";
 import { Image, StructuredText } from "react-datocms";
 
 const About = async () => {
   const data = await fetch(process.env.NEXT_PUBLIC_BASEURL + "/api/about");
-  const { aboutpage }: { aboutpage: any } = await data.json();
+  const { aboutpage }: { aboutpage: AboutPage } = await data.json();
 
   return (
     <>

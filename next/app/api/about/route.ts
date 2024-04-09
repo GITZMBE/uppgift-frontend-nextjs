@@ -1,4 +1,5 @@
 import request from "@/src/lib/datocms";
+import AboutPage from "@/src/models/aboutpage";
 
 export const GET = async (req: Request, res: Response) => {
   const query = `query productCopy {
@@ -18,6 +19,6 @@ export const GET = async (req: Request, res: Response) => {
       }
     }
   }`;
-  const { page }: { page: any } = await request({ query });
+  const { page }: { page: AboutPage } = await request({ query });
   return new Response(JSON.stringify({ aboutpage: page }));
 };
