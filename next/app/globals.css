@@ -1,6 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* [&_h2]:font-bold [&_h2]:text-2xl [&_h3]:font-bold [&_h3]:text-xl [&_blockquote]:italic */
+@layer base {
+  .structuredText h2 {
+    @apply text-2xl font-bold;
+  }
+
+  .structuredText h3 {
+    @apply text-xl font-bold;
+  }
+
+  .structuredText p {
+    
+  }
+
+  .structuredText blockquote {
+    @apply italic;
+  }
+
+  .structuredText ol {
+    @apply list-disc ml-8
+  }
+}
 
 @layer utilities {
   .scroll-hidden::-webkit-scrollbar {
