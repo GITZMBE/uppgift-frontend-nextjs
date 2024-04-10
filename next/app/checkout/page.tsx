@@ -1,7 +1,7 @@
 "use client";
 
 import CartItemRecord from "@/src/components/ui/CartItemRecord";
-import { Input } from "@/src/components";
+import { Input } from "@/src/components/ui";
 import CartItem from "@/src/models/cartItem";
 import { cartState, getCartValue, orderState } from "@/src/recoil";
 import React from "react";

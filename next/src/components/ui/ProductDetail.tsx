@@ -1,12 +1,8 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Product from "../../models/product";
 import { Image, StructuredText } from "react-datocms";
-import { useShowModal, useUpdateCart } from "../../hooks";
-import { useRecoilState } from "recoil";
-import CartItem from "../../models/cartItem";
-import { cartState } from "../../recoil";
+import Link from "next/link";
+import { FaAngleDoubleLeft } from "react-icons/fa";
 
 interface Props {
   product: Product | null;
@@ -33,6 +29,7 @@ const ProductDetail = ({ addToCart, product }: Props) => {
         </div>
         <div className='lg:w-2/3 flex flex-col justify-between'>
           <div className='flex flex-col gap-4 py-4'>
+            <Link href='/products' className="flex items-center gap-2 font-bold"><div className="flex items-center"><FaAngleDoubleLeft /></div> Products</Link>
             <h2 className='text-3xl font-medium'>{product.name}</h2>
             <span className='text-xl font-semibold'>$ {product.price}</span>
             <div className='flex flex-col items-start gap-4 [&_h2]:font-bold [&_h2]:text-2xl [&_h3]:font-bold [&_h3]:text-xl [&_ol]:list-disc [&_ol]:ml-8 [&_blockquote]:italic'>
