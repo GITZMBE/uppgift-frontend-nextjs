@@ -19,6 +19,6 @@ export const GET = async (req: Request, res: Response) => {
       }
     }
   }`;
-  const { page }: { page: AboutPage } = await request({ query });
+  const { page } = await request<{ page: AboutPage }>({ query });
   return new Response(JSON.stringify({ aboutpage: page }));
 };
