@@ -2,7 +2,7 @@ import { Page } from "@/src/models";
 import React from "react";
 import { Image, StructuredText } from "react-datocms";
 
-const About = async () => {
+const AboutPage = async () => {
   const data = await fetch(process.env.NEXT_PUBLIC_BASEURL + "/api/pages/about");
   const { page }: { page: Page } = await data.json();
 
@@ -24,4 +24,4 @@ const About = async () => {
   );
 };
 
-export default About;
+export default AboutPage;
