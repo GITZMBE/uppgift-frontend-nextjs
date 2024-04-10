@@ -1,9 +1,12 @@
 import request from "@/src/lib/datocms";
-import AboutPage from "@/src/models/aboutpage";
+import { Page } from '@/src/models';
 
-export const GET = async (req: Request, res: Response) => {
+export async function GET(req: Request, context: any) {
+  const { params } = context;
+  const { slug } = params;
+  
   const query = `query productCopy {
-    page(filter: {slug: {eq: "about"}}) {
+    page(filter: {slug: {eq: "${slug}"}}) {
       id
       title
       mainImage {
@@ -19,6 +22,6 @@ export const GET = async (req: Request, res: Response) => {
       }
     }
   }`;
-  const { page } = await request<{ page: AboutPage }>({ query });
-  return new Response(JSON.stringify({ aboutpage: page }));
-};
+  const { page } = await request<{ page: Page }>({ query });
+  return new Response(JSON.stringify({ page: page }));
+}
