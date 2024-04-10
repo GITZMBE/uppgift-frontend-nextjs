@@ -1,4 +1,4 @@
-interface Page {
+export interface Page {
   id: string;
   title: string;
   mainImage: {
