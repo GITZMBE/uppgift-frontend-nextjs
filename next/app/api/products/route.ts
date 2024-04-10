@@ -7,9 +7,6 @@ export async function GET(req: Request, res: Response) {
       id
       name
       price
-      description {
-        value
-      }
       mainImage {
         responsiveImage(imgixParams: {fit: crop, auto: format, h: "100", w: "100"}) {
           height
