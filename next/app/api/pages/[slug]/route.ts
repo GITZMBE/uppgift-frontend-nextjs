@@ -1,5 +1,5 @@
 import request from "@/src/lib/datocms";
-import Page from "@/src/models/page";
+import { Page } from '@/src/models';
 
 export async function GET(req: Request, context: any) {
   const { params } = context;
