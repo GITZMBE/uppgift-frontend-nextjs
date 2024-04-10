@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import CartItem from "../models/cartItem";
+import CartItem from "../../models/cartItem";
 import { Image } from "react-datocms";
 import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
-import { useUpdateCart } from "../hooks";
+import { useUpdateCart } from "../../hooks";
 
 const CartItemRecord = ({ item }: { item: CartItem }) => {
   const { quantity, setQuantity } = useUpdateCart(item.id);

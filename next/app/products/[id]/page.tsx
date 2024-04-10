@@ -1,8 +1,8 @@
 "use client";
 
 import Container from "@/src/components/Container";
-import Modal from "@/src/components/Modal";
-import ProductDetail from "@/src/components/ProductDetail";
+import Modal from "@/src/components/ui/Modal";
+import ProductDetail from "@/src/components/ui/ProductDetail";
 import { useShowModal, useUpdateCart } from "@/src/hooks";
 import CartItem from "@/src/models/cartItem";
 import Product from "@/src/models/product";

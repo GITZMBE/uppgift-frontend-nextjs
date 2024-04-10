@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Image } from "react-datocms";
-import Product from "../models/product";
+import Product from "../../models/product";
 
 const ProductRecord = ({ product }: { product: Product }) => {
   const baseUrl = process.env.NEXT_PUBLIC_BASEURL;

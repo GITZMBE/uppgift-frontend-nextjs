@@ -1,10 +1,13 @@
 import React from "react";
 import Container from "../../src/components/Container";
-import ProductRecord from "../../src/components/ProductRecord";
+import ProductRecord from "../../src/components/ui/ProductRecord";
 import Product from "../../src/models/product";
 
 const ProductsPage = async () => {
-  const data = await fetch(process.env.NEXT_PUBLIC_BASEURL + "/api/products", { method: 'GET', cache: "no-cache" });
+  const data = await fetch(process.env.NEXT_PUBLIC_BASEURL + "/api/products", {
+    method: "GET",
+    cache: "no-cache",
+  });
   const { products }: { products: Product[] } = await data.json();
 
   return (
@@ -14,11 +17,10 @@ const ProductsPage = async () => {
           Featured Products
         </h1>
         <div className='flex justify-start basis-auto flex-wrap flex-grow-1 gap-4'>
-          {
-            products && products.map((product: Product) => (
+          {products &&
+            products.map((product: Product) => (
               <ProductRecord key={product.id} product={product} />
-            ))
-          }
+            ))}
         </div>
       </div>
     </Container>
