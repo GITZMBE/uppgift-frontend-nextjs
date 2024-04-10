@@ -32,7 +32,7 @@ const ProductDetail = ({ addToCart, product }: Props) => {
             <Link href='/products' className="flex items-center gap-2 font-bold"><div className="flex items-center"><FaAngleDoubleLeft /></div> Products</Link>
             <h2 className='text-3xl font-medium'>{product.name}</h2>
             <span className='text-xl font-semibold'>$ {product.price}</span>
-            <div className='flex flex-col items-start gap-4 [&_h2]:font-bold [&_h2]:text-2xl [&_h3]:font-bold [&_h3]:text-xl [&_ol]:list-disc [&_ol]:ml-8 [&_blockquote]:italic'>
+            <div className='flex flex-col items-start gap-4 structuredText'>
               <StructuredText data={product.description.value} />
             </div>
           </div>
