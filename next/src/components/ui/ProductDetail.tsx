@@ -3,6 +3,7 @@ import Product from "../../models/product";
 import { Image, StructuredText } from "react-datocms";
 import Link from "next/link";
 import { FaAngleDoubleLeft } from "react-icons/fa";
+import formatPrice from "@/src/utils";
 
 interface Props {
   product: Product | null;
@@ -31,7 +32,7 @@ const ProductDetail = ({ addToCart, product }: Props) => {
           <div className='flex flex-col gap-4 py-4'>
             <Link href='/products' className="flex items-center gap-2 font-bold"><div className="flex items-center"><FaAngleDoubleLeft /></div> Products</Link>
             <h2 className='text-3xl font-medium'>{product.name}</h2>
-            <span className='text-xl font-semibold'>$ {product.price}</span>
+            <span className='text-xl font-semibold'>{formatPrice.format(product.price)}</span>
             <div className='flex flex-col items-start gap-4 structuredText'>
               <StructuredText data={product.description.value} />
             </div>

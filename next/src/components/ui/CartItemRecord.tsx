@@ -6,6 +6,7 @@ import { Image } from "react-datocms";
 import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { useUpdateCart } from "../../hooks";
+import formatPrice from "@/src/utils";
 
 const CartItemRecord = ({ item }: { item: CartItem }) => {
   const { quantity, setQuantity } = useUpdateCart(item.id);
@@ -41,7 +42,7 @@ const CartItemRecord = ({ item }: { item: CartItem }) => {
           </button>
         </div>
         <span className='w-28 text-center text-2xl'>
-          $ {item.price * quantity}
+          {formatPrice.format(item.price * quantity)}
         </span>
         <RxCross2
           size={24}
