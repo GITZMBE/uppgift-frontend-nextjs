@@ -7,6 +7,7 @@ import { cartState, getCartValue, orderState } from "@/src/recoil";
 import React from "react";
 import { useRecoilState } from "recoil";
 import { useRouter } from "next/navigation";
+import formatPrice from "@/src/utils";
 
 const CheckoutPage = () => {
   const router = useRouter();
@@ -36,17 +37,17 @@ const CheckoutPage = () => {
         <div className='space-y-2 py-4 border-b-2 border-gray-300'>
           <div className='w-full flex justify-between items-center gap-4 text-xl'>
             <span className='font-semibold opacity-75'>Subtotal</span>
-            <span className='font-bold'>$ {getCartValue(cart)}</span>
+            <span className='font-bold'>{formatPrice.format(getCartValue(cart))}</span>
           </div>
           <div className='w-full flex justify-between items-center gap-4 text-xl'>
             <span className='font-semibold opacity-75'>Delivery fee</span>
-            <span className='font-bold'>$ {deliveryFee}</span>
+            <span className='font-bold'>{formatPrice.format(deliveryFee)}</span>
           </div>
         </div>
         <div className='w-full flex justify-between items-center gap-4 text-xl'>
           <span className='font-semibold opacity-75'>Total</span>
           <span className='font-bold'>
-            $ {getCartValue(cart) + deliveryFee}
+            {formatPrice.format(getCartValue(cart) + deliveryFee)}
           </span>
         </div>
       </div>

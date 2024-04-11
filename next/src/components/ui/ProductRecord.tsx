@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { Image } from "react-datocms";
 import Product from "../../models/product";
+import formatPrice from "@/src/utils";
 
 const ProductRecord = ({ product }: { product: Product }) => {
   const baseUrl = process.env.NEXT_PUBLIC_BASEURL;
@@ -16,7 +17,7 @@ const ProductRecord = ({ product }: { product: Product }) => {
         data={product.mainImage.responsiveImage}
       />
       <h2 className='font-semibold'>{product.name}</h2>
-      <span className='text-2xl font-bold'>$ {product.price.toFixed(2)}</span>
+      <span className='text-2xl font-bold'>{formatPrice.format(product.price)}</span>
     </Link>
   );
 };
