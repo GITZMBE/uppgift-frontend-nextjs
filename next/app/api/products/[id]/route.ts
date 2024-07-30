@@ -22,7 +22,7 @@ export async function GET(req: Request, context: any) {
         }
       }
       mainImage {
-        responsiveImage(imgixParams: {auto: format, fit: crop, h: "300", w: "300"}) {
+        responsiveImage(imgixParams: {auto: format, fit: crop, h: "500", w: "500"}) {
           height
           src
           srcSet

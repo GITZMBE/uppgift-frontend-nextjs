@@ -17,7 +17,7 @@ const ProductPage = ({ params: { id } }: { params: { id: string } }) => {
   const { quantity, setQuantity } = useUpdateCart(id);
 
   useEffect(() => {
-    fetch(process.env.NEXT_PUBLIC_BASEURL + `/api/products/${id}`, {
+    fetch(`${window.location.origin || process.env.NEXT_PUBLIC_BASEURL}/api/products/${id}`, {
       method: "GET",
       cache: "no-cache",
     })

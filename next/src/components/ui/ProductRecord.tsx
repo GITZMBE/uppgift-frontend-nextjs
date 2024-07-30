@@ -16,8 +16,8 @@ const ProductRecord = ({ product }: { product: Product }) => {
         className='rounded-full'
         data={product.mainImage.responsiveImage}
       />
-      <h2 className='font-semibold'>{product.name}</h2>
-      <span className='text-2xl font-bold'>{formatPrice.format(product.price)}</span>
+      <h2 className='font-semibold text-lg sm:text-base'>{product.name}</h2>
+      <span className='text-3xl sm:text-2xl font-bold'>{formatPrice.format(product.price)}</span>
     </Link>
   );
 };

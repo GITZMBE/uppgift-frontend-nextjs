@@ -14,7 +14,7 @@ const ProductDetail = ({ addToCart, product }: Props) => {
   return (
     product !== null && (
       <div className='flex flex-col lg:flex-row gap-8 w-full p-4 rounded-xl shadow-lg'>
-        <div className='w-[316px] aspect-square space-y-2'>
+        <div className='xs:w-[316px] aspect-square space-y-2'>
           <Image data={product.mainImage.responsiveImage} className='w-full' />
           <div className='flex gap-2'>
             {product.alternativeImages &&

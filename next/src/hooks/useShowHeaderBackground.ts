@@ -4,9 +4,9 @@ export const useShowHeaderBackground = ( path: string ) => {
   const [showHeaderBackground, setShowHeaderBackground] = useState<boolean>(false);
   
   const handleMouseEvent = () => {
-    if (window.scrollY > 48) {
+    if (window.scrollY > 0) {
       setShowHeaderBackground(true);
-    } else if (window.scrollY <= 48) {
+    } else {
       setShowHeaderBackground(false);
     }
   };  

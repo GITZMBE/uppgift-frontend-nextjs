@@ -13,10 +13,10 @@ const ProductsPage = async () => {
   return (
     <Container>
       <div className='flex flex-col items-center gap-12'>
-        <h1 className='text-2xl md:text-6xl text-center font-semibold leading-[36px] md:leading-[80px]'>
+        <h1 className='text-3xl md:text-6xl text-center font-semibold leading-[36px] md:leading-[80px]'>
           Featured Products
         </h1>
-        <div className='flex justify-start basis-auto flex-wrap flex-grow-1 gap-4'>
+        <div className='flex justify-center md:justify-start basis-auto flex-wrap flex-grow-1 gap-4'>
           {products &&
             products.map((product: Product) => (
               <ProductRecord key={product.id} product={product} />

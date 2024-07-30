@@ -12,7 +12,7 @@ const Home = async () => {
           <div className='relative flex items-center max-h-[50vh] overflow-hidden'>
             <Image data={startpage.mainImage.responsiveImage} />
             <div className='absolute inset-0 flex justify-center items-center px-4 sm:px-8 md:px-12 backdrop-brightness-50'>
-              <h1 className='text-light text-6xl text-center font-bold'>
+              <h1 className='text-light text-3xl sm:text-4xl md:text-6xl text-center font-bold'>
                 {startpage.title}
               </h1>
             </div>

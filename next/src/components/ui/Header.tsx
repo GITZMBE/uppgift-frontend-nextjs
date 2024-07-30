@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed flex justify-between items-center w-full py-4 px-4 sm:px-8 md:px-12 transition z-50 ${
+      className={`fixed flex justify-between items-center w-full py-4 px-2 sm:px-8 md:px-12 transition z-50 ${
         !hasHero && showHeaderBackground && "bg-white"
       } ${
         hasHero && showHeaderBackground
@@ -29,13 +29,13 @@ const Header = () => {
         <img src='/Logo.png' className='h-10' alt='' />
       </Link>
       <nav
-        className={`flex gap-4 transition ${
+        className={`flex text-sm transition ${
           showHeaderBackground || !hasHero ? "" : "text-light"
         }`}
       >
-        <Link href='/about'>About Us</Link>
-        <Link href='/products'>Products</Link>
-        <Link href='/cart'>Cart</Link>
+        <Link className="text-nowrap p-1 sm:p-2" href='/about'>About Us</Link>
+        <Link className="text-nowrap p-1 sm:p-2" href='/products'>Products</Link>
+        <Link className="text-nowrap p-1 sm:p-2" href='/cart'>Cart</Link>
       </nav>
     </header>
   );

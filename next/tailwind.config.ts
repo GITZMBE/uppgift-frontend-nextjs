@@ -12,6 +12,9 @@ const config: Config = {
       },
       fontFamily: {
         Inter: "Inter"
+      },
+      screens: {
+        xs: "420px"
       }
     },
   },

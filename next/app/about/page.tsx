@@ -11,7 +11,7 @@ const AboutPage = async () => {
       <div className='relative flex items-center max-h-[50vh] overflow-hidden'>
         <Image data={page.mainImage.responsiveImage} />
         <div className='absolute inset-0 flex justify-center items-center px-4 sm:px-8 md:px-12 backdrop-brightness-50'>
-          <h1 className='text-[#EEEEEE] text-8xl text-center font-bold'>
+          <h1 className='text-[#EEEEEE] text-4xl sm:text-8xl text-center font-bold'>
             {page.title} Us
           </h1>
         </div>
