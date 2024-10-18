@@ -6,9 +6,9 @@ import { Image } from "react-datocms";
 import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { useUpdateCart } from "../../hooks";
-import formatPrice from "@/src/utils";
+import { formatPrice } from "@/utils";
 
-const CartItemRecord = ({ item }: { item: CartItem }) => {
+export const CartItemRecord = ({ item }: { item: CartItem }) => {
   const { quantity, setQuantity } = useUpdateCart(item.id);
 
   return (

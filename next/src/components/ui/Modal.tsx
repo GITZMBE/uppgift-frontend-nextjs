@@ -9,7 +9,7 @@ interface IModalProps {
   success: boolean;
 };
 
-const Modal = ({isOpen = false, title = "", description = "", success = false}: IModalProps) => {
+export const Modal = ({isOpen = false, title = "", description = "", success = false}: IModalProps) => {
   return isOpen && (
     <div className='fixed inset-0 backdrop-brightness-50 z-50 flex justify-center items-center'>
       <div className='flex flex-col justify-center items-center gap-4 min-w-[40%] min-h-[40%] p-4 rounded-xl shadow-lg bg-light'>

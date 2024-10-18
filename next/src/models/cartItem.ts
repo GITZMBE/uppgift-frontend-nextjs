@@ -1,10 +1,10 @@
 import Product from "./product";
 
-interface CartItem extends Product {
+export interface CartItem extends Product {
   quantity: number;
 }
 
-class CartItem implements CartItem {
+export class CartItem implements CartItem {
   quantity: number;
 
   constructor(product: Product, quantity: number = 1) {

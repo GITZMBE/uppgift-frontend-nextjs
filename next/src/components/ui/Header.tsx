@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { usePageHasHero, useShowHeaderBackground } from "../../hooks";
 
-const Header = () => {
+export const Header = () => {
   const path: string = usePathname();
   const [pathname, setPathname] = useState<string>(path || "");
   const { showHeaderBackground, setShowHeaderBackground } = useShowHeaderBackground(pathname);

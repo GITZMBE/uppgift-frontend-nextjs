@@ -1,4 +1,4 @@
-interface StartPage {
+export interface StartPage {
       title: string;
       id: string;
       mainImage: {

@@ -2,9 +2,9 @@ import Link from "next/link";
 import React from "react";
 import { Image } from "react-datocms";
 import Product from "../../models/product";
-import formatPrice from "@/src/utils";
+import { formatPrice } from "@/utils";
 
-const ProductRecord = ({ product }: { product: Product }) => {
+export const ProductRecord = ({ product }: { product: Product }) => {
   const baseUrl = process.env.NEXT_PUBLIC_BASEURL;
 
   return (

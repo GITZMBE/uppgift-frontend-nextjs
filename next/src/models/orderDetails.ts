@@ -1,4 +1,4 @@
-interface OrderDetails {
+export interface OrderDetails {
   cardNumber: string,
   expire: string,
   cvc: string,

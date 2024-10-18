@@ -1,7 +1,7 @@
-import request from "@/src/lib/datocms";
-import Product from "@/src/models/product";
+import request from "@/lib/datocms";
+import Product from "@/models/product";
 
-export async function GET(req: Request, res: Response) {
+export const GET = async (req: Request, res: Response) => {
   const query = `query productCopy {
     allProducts {
       id

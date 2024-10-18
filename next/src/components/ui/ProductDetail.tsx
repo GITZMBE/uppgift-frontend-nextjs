@@ -3,14 +3,14 @@ import Product from "../../models/product";
 import { Image, StructuredText } from "react-datocms";
 import Link from "next/link";
 import { FaAngleDoubleLeft } from "react-icons/fa";
-import formatPrice from "@/src/utils";
+import { formatPrice } from "@/utils";
 
 interface Props {
   product: Product | null;
   addToCart: () => void;
 }
 
-const ProductDetail = ({ addToCart, product }: Props) => {
+export const ProductDetail = ({ addToCart, product }: Props) => {
   return (
     product !== null && (
       <div className='flex flex-col lg:flex-row gap-8 w-full p-4 rounded-xl shadow-lg'>

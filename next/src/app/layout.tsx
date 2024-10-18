@@ -1,7 +1,7 @@
 // import type { Metadata } from "next";
 import "./globals.css";
-import Header from "../src/components/ui/Header";
-import { RecoilProvider } from "@/src/providers";
+import Header from "../components/ui/Header";
+import { RecoilProvider } from "@/providers";
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",

@@ -1,13 +1,13 @@
 "use client";
 
-import CartItemRecord from "@/src/components/ui/CartItemRecord";
-import { Input } from "@/src/components/ui";
-import CartItem from "@/src/models/cartItem";
-import { cartState, getCartValue, orderState } from "@/src/recoil";
+import CartItemRecord from "@/components/ui/CartItemRecord";
+import { Input } from "@/components";
+import CartItem from "@/models/cartItem";
+import { cartState, getCartValue, orderState } from "@/recoil";
 import React from "react";
 import { useRecoilState } from "recoil";
 import { useRouter } from "next/navigation";
-import formatPrice from "@/src/utils";
+import { formatPrice } from "@/utils";
 
 const CheckoutPage = () => {
   const router = useRouter();
@@ -47,8 +47,7 @@ const CheckoutPage = () => {
         <div className='w-full flex justify-between items-center gap-4 text-xl'>
           <span className='font-semibold opacity-75'>Total</span>
           <span className='font-bold'>
-            {formatPrice.format(getCartValue(cart) + deliveryFee)}
-          </span>
+            {formatPrice.format(getCartValue(cart) + deliveryFee)}          </span>
         </div>
       </div>
       <form

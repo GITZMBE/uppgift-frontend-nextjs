@@ -1,11 +1,10 @@
 "use client";
 
 import React from "react";
-import Container from "../../src/components/Container";
-import CartItemRecord from "../../src/components/ui/CartItemRecord";
-import CartItem from "../../src/models/cartItem";
+import { Container, CartItemRecord } from "@/components";
+import { CartItem } from "@/models";
 import { useRecoilState } from "recoil";
-import { cartState } from "../../src/recoil";
+import { cartState } from "@/recoil";
 import Link from "next/link";
 
 const CartPage = () => {

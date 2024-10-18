@@ -1,8 +1,7 @@
-import request from "@/src/lib/datocms";
-import { Page } from '@/src/models';
+import request from "@/lib/datocms";
+import { Page } from '@/models';
 
-export async function GET(req: Request, context: any) {
-  const { params } = context;
+export const GET = async (req: Request, { params }: { params: { slug: string } }) => {
   const { slug } = params;
   
   const query = `query productCopy {

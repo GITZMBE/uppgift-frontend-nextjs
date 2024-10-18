@@ -1,7 +1,7 @@
-import request from "@/src/lib/datocms";
-import StartPage from "@/src/models/startpage";
+import request from "@/lib/datocms";
+import StartPage from "@/models/startpage";
 
-export async function GET(req: Request, res: Response) {
+export const GET = async (req: Request, res: Response) => {
   const query = `query productCopy {
     startpage {
       title

@@ -1,12 +1,9 @@
 "use client";
 
-import Container from "@/src/components/Container";
-import Modal from "@/src/components/ui/Modal";
-import ProductDetail from "@/src/components/ui/ProductDetail";
-import { useShowModal, useUpdateCart } from "@/src/hooks";
-import CartItem from "@/src/models/cartItem";
-import Product from "@/src/models/product";
-import { cartState } from "@/src/recoil";
+import { Container, ProductDetail, Modal } from "@/components";
+import { useShowModal, useUpdateCart } from "@/hooks";
+import { CartItem, Product } from "@/models";
+import { cartState } from "@/recoil";
 import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 

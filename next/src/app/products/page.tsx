@@ -1,7 +1,6 @@
 import React from "react";
-import Container from "../../src/components/Container";
-import ProductRecord from "../../src/components/ui/ProductRecord";
-import Product from "../../src/models/product";
+import { Container, ProductRecord } from "@/components";
+import { Product } from "@/models";
 
 const ProductsPage = async () => {
   const data = await fetch(process.env.NEXT_PUBLIC_BASEURL + "/api/products", {
