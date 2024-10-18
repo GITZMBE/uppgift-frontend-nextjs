@@ -1,8 +1,7 @@
 // import type { Metadata } from "next";
 import "./globals.css";
 import Header from "../src/components/ui/Header";
-import { RecoilRoot } from "recoil";
-import ContextWrapper from "@/src/components/ContextWrapper";
+import { RecoilProvider } from "@/src/providers";
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",
@@ -31,10 +30,10 @@ export default function RootLayout({
         />
       </head>
       <body className='font-Inter'>
-        <ContextWrapper>
+        <RecoilProvider>
           <Header />
           {children}
-        </ContextWrapper>
+        </RecoilProvider>
       </body>
     </html>
   );

@@ -3,8 +3,8 @@
 import React from "react";
 import { RecoilRoot } from "recoil";
 
-const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
+export const RecoilProvider = ({ children }: { children: React.ReactNode }) => {
   return <RecoilRoot>{children}</RecoilRoot>;
 };
 
-export default ContextWrapper;
+export default RecoilProvider;
