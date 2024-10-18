@@ -1,10 +1,11 @@
 import request from "@/lib/datocms";
 import { Page } from '@/models';
+import { gql } from "graphql-request";
 
 export const GET = async (req: Request, { params }: { params: { slug: string } }) => {
   const { slug } = params;
   
-  const query = `query productCopy {
+  const query = gql`{
     page(filter: {slug: {eq: "${slug}"}}) {
       id
       title

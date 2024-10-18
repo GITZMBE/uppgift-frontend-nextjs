@@ -1,10 +1,11 @@
 import request from "@/lib/datocms";
 import Product from "@/models/product";
+import { gql } from "graphql-request";
 
 export const GET = async (req: Request, { params }: { params: { id: string } }) => {
   const { id } = params;
   
-  const query = `query productCopy {
+  const query = gql`{
     product(filter: {id: {eq: "${id}"}}) {
       id
       price

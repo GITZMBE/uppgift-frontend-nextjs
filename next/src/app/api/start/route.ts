@@ -1,8 +1,9 @@
 import request from "@/lib/datocms";
 import StartPage from "@/models/startpage";
+import { gql } from "graphql-request";
 
 export const GET = async (req: Request, res: Response) => {
-  const query = `query productCopy {
+  const query = gql`{
     startpage {
       title
       id
